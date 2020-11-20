@@ -15,12 +15,23 @@ class InputViewController: UIViewController {
     @IBOutlet weak var salaryField: UITextField!
     @IBOutlet weak var ageField: UITextField!
     @IBOutlet weak var submitBtn: UIButton!
+    @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var showAllBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        statusLabel.isHidden = true
         submitBtn.layer.cornerRadius = 10
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        nameField.text = ""
+        salaryField.text = ""
+        ageField.text = ""
+        statusLabel.isHidden = true
     }
 
     ///TEXTFIELD
@@ -53,7 +64,31 @@ class InputViewController: UIViewController {
     }
     
     func postData() {
+        let parameters =
+            [
+                "name" : nameField.text!,
+                "salary" : salaryField.text!,
+                "age" : ageField.text!
+            ]
         
+        AF.request("http://dummy.restapiexample.com/api/v1/create", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil).responseJSON {
+        response in switch response.result {
+        case .success(let data):
+            print(data)
+            
+            self.nameField.text = ""
+            self.salaryField.text = ""
+            self.ageField.text = ""
+            self.statusLabel.text = "Success!"
+            self.statusLabel.isHidden = false
+            
+        case .failure(let error):
+            print(error)
+            
+            self.statusLabel.text = "Failed, try again!"
+            self.statusLabel.isHidden = false
+        }
+        }
     }
     
     func checkField() {
@@ -70,7 +105,7 @@ class InputViewController: UIViewController {
             ageField.layer.borderWidth = 1
         }
         if (nameField.text?.isEmpty == false) && (salaryField.text?.isEmpty == false) && (ageField.text?.isEmpty == false) {
-            print("Submitted!")
+            postData()
         }
     }
     

@@ -69,6 +69,12 @@
                                     <action selector="submitAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Yvk-8v-GgK"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rYr-h9-d5L">
+                                <rect key="frame" x="65" y="626" width="285" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="systemRedColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemYellowColor"/>
@@ -79,14 +85,17 @@
                             <constraint firstItem="wsM-Oh-kMu" firstAttribute="leading" secondItem="WNz-wq-Tic" secondAttribute="leading" id="GhN-e0-20q"/>
                             <constraint firstItem="wEg-yx-5ys" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="65" id="KVH-sN-mWn"/>
                             <constraint firstItem="g2w-7C-gc4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="LSz-La-1TC"/>
+                            <constraint firstItem="rYr-h9-d5L" firstAttribute="top" secondItem="Omt-JU-8za" secondAttribute="bottom" constant="53" id="SBa-bM-AER"/>
                             <constraint firstItem="WNz-wq-Tic" firstAttribute="trailing" secondItem="wEg-yx-5ys" secondAttribute="trailing" id="U91-KD-Pf3"/>
                             <constraint firstItem="g2w-7C-gc4" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Uap-IH-Gdz"/>
+                            <constraint firstItem="rYr-h9-d5L" firstAttribute="trailing" secondItem="Omt-JU-8za" secondAttribute="trailing" id="Y5b-lE-ZBH"/>
                             <constraint firstItem="wsM-Oh-kMu" firstAttribute="trailing" secondItem="WNz-wq-Tic" secondAttribute="trailing" id="cK1-m4-6Af"/>
                             <constraint firstItem="g2w-7C-gc4" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="gMC-gD-kWH"/>
                             <constraint firstItem="Omt-JU-8za" firstAttribute="top" secondItem="wsM-Oh-kMu" secondAttribute="bottom" constant="38" id="hlT-rz-30R"/>
                             <constraint firstItem="WNz-wq-Tic" firstAttribute="top" secondItem="wEg-yx-5ys" secondAttribute="bottom" constant="35" id="odL-vO-iEC"/>
                             <constraint firstItem="Omt-JU-8za" firstAttribute="trailing" secondItem="wsM-Oh-kMu" secondAttribute="trailing" id="p61-TY-Duw"/>
                             <constraint firstItem="Omt-JU-8za" firstAttribute="leading" secondItem="wsM-Oh-kMu" secondAttribute="leading" id="tJv-Oe-g8f"/>
+                            <constraint firstItem="rYr-h9-d5L" firstAttribute="leading" secondItem="Omt-JU-8za" secondAttribute="leading" id="yfg-Pz-ga8"/>
                             <constraint firstItem="wEg-yx-5ys" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="279" id="ygb-TL-oIR"/>
                         </constraints>
                     </view>
@@ -95,13 +104,14 @@
                         <outlet property="nameField" destination="wEg-yx-5ys" id="vmp-om-Xmb"/>
                         <outlet property="salaryField" destination="WNz-wq-Tic" id="Q4Y-Qt-jUA"/>
                         <outlet property="showAllBtn" destination="g2w-7C-gc4" id="buF-GD-pL4"/>
+                        <outlet property="statusLabel" destination="rYr-h9-d5L" id="Tkb-Kf-8vT"/>
                         <outlet property="submitBtn" destination="Omt-JU-8za" id="vzP-Pl-NL5"/>
                         <segue destination="JSC-wm-HG1" kind="show" identifier="toShowAll" id="9Oo-Aq-NIB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="122" y="119"/>
+            <point key="canvasLocation" x="121.73913043478262" y="118.52678571428571"/>
         </scene>
         <!--Employee List View Controller-->
         <scene sceneID="pWT-Ug-201">
@@ -311,6 +321,9 @@
     <resources>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
