@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,6 +17,7 @@
 		E3B853CF2567E13500036F45 /* EmployeeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B853CE2567E13500036F45 /* EmployeeListViewController.swift */; };
 		E3B853D32567E16900036F45 /* EmployeeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B853D22567E16900036F45 /* EmployeeTableViewCell.swift */; };
 		E3B853D72567E2A100036F45 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B853D62567E2A100036F45 /* DetailViewController.swift */; };
+		E3B853DF2567E76E00036F45 /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B853DE2567E76E00036F45 /* Employee.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		E3B853CE2567E13500036F45 /* EmployeeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeListViewController.swift; sourceTree = "<group>"; };
 		E3B853D22567E16900036F45 /* EmployeeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeTableViewCell.swift; sourceTree = "<group>"; };
 		E3B853D62567E2A100036F45 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		E3B853DE2567E76E00036F45 /* Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
 		F0F749DC0FAD770CE3BD7366 /* Pods_AppCBTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppCBTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -101,6 +103,7 @@
 		E3B853C62567D6ED00036F45 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E3B853DE2567E76E00036F45 /* Employee.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -129,7 +132,6 @@
 				6754687371B123F32F0F1398 /* Pods-AppCBTest.debug.xcconfig */,
 				5FB72189D36CA6EAEFC7D5EA /* Pods-AppCBTest.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -250,6 +252,7 @@
 				E3B853CF2567E13500036F45 /* EmployeeListViewController.swift in Sources */,
 				E3B853B52567D5A600036F45 /* InputViewController.swift in Sources */,
 				E3B853B12567D5A600036F45 /* AppDelegate.swift in Sources */,
+				E3B853DF2567E76E00036F45 /* Employee.swift in Sources */,
 				E3B853D72567E2A100036F45 /* DetailViewController.swift in Sources */,
 				E3B853D32567E16900036F45 /* EmployeeTableViewCell.swift in Sources */,
 				E3B853B32567D5A600036F45 /* SceneDelegate.swift in Sources */,

@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class InputViewController: UIViewController {
 
@@ -48,6 +50,10 @@ class InputViewController: UIViewController {
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view?.endEditing(true)
+    }
+    
+    func postData() {
+        
     }
     
     func checkField() {
