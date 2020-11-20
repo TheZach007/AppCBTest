@@ -6,17 +6,30 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class DetailViewController: UIViewController {
     
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var salaryField: UITextField!
     @IBOutlet weak var ageField: UITextField!
+    @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var submitBtn: UIButton!
+    
+    let savedId = UserDefaults.standard.integer(forKey: "idValue")
+    let savedName = UserDefaults.standard.string(forKey: "nameValue")
+    let savedSalary = UserDefaults.standard.integer(forKey: "salaryValue")
+    let savedAge = UserDefaults.standard.integer(forKey: "ageValue")
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        statusLabel.isHidden = true
+        
+        nameField.text = savedName
+        salaryField.text = "\(savedSalary)"
+        ageField.text = "\(savedAge)"
         submitBtn.layer.cornerRadius = 10
     }
     
@@ -45,6 +58,30 @@ class DetailViewController: UIViewController {
         self.view?.endEditing(true)
     }
     
+    func updateData() {
+        let parameters =
+            [
+                "name" : nameField.text!,
+                "salary" : salaryField.text!,
+                "age" : ageField.text!
+            ]
+        
+        AF.request("http://dummy.restapiexample.com/api/v1/update/" + "\(savedId)", method: .put, parameters: parameters, encoding: JSONEncoding.default, headers: nil).responseJSON {
+        response in switch response.result {
+        case .success(let data):
+            print(data)
+            
+            self.performSegue(withIdentifier: "unwindToList", sender: self)
+            
+        case .failure(let error):
+            print(error)
+            
+            self.statusLabel.text = "Failed, try again!"
+            self.statusLabel.isHidden = false
+        }
+        }
+    }
+    
     func checkField() {
         if (nameField.text?.isEmpty == true) {
             nameField.layer.borderColor = UIColor.red.cgColor
@@ -59,7 +96,7 @@ class DetailViewController: UIViewController {
             ageField.layer.borderWidth = 1
         }
         if (nameField.text?.isEmpty == false) && (salaryField.text?.isEmpty == false) && (ageField.text?.isEmpty == false) {
-            print("Submitted!")
+            updateData()
         }
     }
 

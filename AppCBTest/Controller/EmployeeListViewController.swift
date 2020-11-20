@@ -12,6 +12,7 @@ import SwiftyJSON
 class EmployeeListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var statusLabel: UILabel!
     
     var employeeArray = [Any]()
     var showAllDataEmployees : [showData] = []
@@ -19,6 +20,21 @@ class EmployeeListViewController: UIViewController, UITableViewDelegate, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        getData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        tableView.isHidden = true
+        employeeArray.removeAll()
+        showAllDataEmployees.removeAll()
+        getData()
+    }
+    
+    @IBAction func refreshAction(_ sender: Any) {
+        tableView.isHidden = true
+        employeeArray.removeAll()
+        showAllDataEmployees.removeAll()
         getData()
     }
     
@@ -39,6 +55,11 @@ class EmployeeListViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        UserDefaults.standard.set(showAllDataEmployees[indexPath.row].idValue, forKey: "idValue")
+        UserDefaults.standard.set(showAllDataEmployees[indexPath.row].nameValue, forKey: "nameValue")
+        UserDefaults.standard.set(showAllDataEmployees[indexPath.row].salaryValue, forKey: "salaryValue")
+        UserDefaults.standard.set(showAllDataEmployees[indexPath.row].ageValue, forKey: "ageValue")
         
         performSegue(withIdentifier: "toDetails", sender: self)
     }
@@ -71,11 +92,16 @@ class EmployeeListViewController: UIViewController, UITableViewDelegate, UITable
                 }
             }
             self.tableView.reloadData()
+            self.tableView.isHidden = false
             
             activityIndicator.stopAnimating()
             activityIndicator.removeFromSuperview()
         case .failure(let error):
             print(error)
+            
+            activityIndicator.stopAnimating()
+            activityIndicator.removeFromSuperview()
+            self.tableView.isHidden = true
             }
         }
     }
