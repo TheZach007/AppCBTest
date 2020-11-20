@@ -198,62 +198,104 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="3tU-xq-9Fl"/>
+                    <connections>
+                        <segue destination="KPw-pQ-bOE" kind="show" identifier="toDetails" id="YCx-I1-WMW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kai-b8-TJ9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="LGU-QD-oLa" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1042" y="119"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="TiC-Pc-ySc">
             <objects>
-                <viewController id="KPw-pQ-bOE" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="KPw-pQ-bOE" customClass="DetailViewController" customModule="AppCBTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="voU-uu-jqD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oAT-T1-SOO">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oAT-T1-SOO">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="barTintColor" systemColor="systemYellowColor"/>
                                 <items>
                                     <navigationItem title="Employee Detail" id="ODj-Nd-rfN">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="a7N-kb-K86"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="a7N-kb-K86">
+                                            <connections>
+                                                <segue destination="AXh-lK-L6V" kind="unwind" unwindAction="unwindToListWithSegue:" id="2yj-6U-Hgf"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WVH-Zi-Dti">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WVH-Zi-Dti">
                                 <rect key="frame" x="65" y="323" width="285" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="nameType:" destination="KPw-pQ-bOE" eventType="editingChanged" id="b9h-g9-H5F"/>
+                                </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Salary" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="smI-oo-MR2">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Salary" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="smI-oo-MR2">
                                 <rect key="frame" x="65" y="392" width="285" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="salaryType:" destination="KPw-pQ-bOE" eventType="editingChanged" id="fpq-gv-LjI"/>
+                                </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Age" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zWG-Oq-akG">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Age" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zWG-Oq-akG">
                                 <rect key="frame" x="65" y="461" width="285" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="ageType:" destination="KPw-pQ-bOE" eventType="editingChanged" id="xLB-CR-4UG"/>
+                                </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sdr-aK-RIv">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sdr-aK-RIv">
                                 <rect key="frame" x="65" y="533" width="285" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="HZF-rj-NUa"/>
+                                </constraints>
                                 <state key="normal" title="Submit">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="submitAction:" destination="KPw-pQ-bOE" eventType="touchUpInside" id="B70-gb-OdT"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ei5-wZ-pln"/>
                         <color key="backgroundColor" systemColor="systemYellowColor"/>
+                        <constraints>
+                            <constraint firstItem="zWG-Oq-akG" firstAttribute="trailing" secondItem="smI-oo-MR2" secondAttribute="trailing" id="0zH-KI-0cD"/>
+                            <constraint firstItem="oAT-T1-SOO" firstAttribute="trailing" secondItem="ei5-wZ-pln" secondAttribute="trailing" id="2KN-ER-BkP"/>
+                            <constraint firstItem="oAT-T1-SOO" firstAttribute="top" secondItem="ei5-wZ-pln" secondAttribute="top" id="2Qn-DA-BT0"/>
+                            <constraint firstItem="smI-oo-MR2" firstAttribute="trailing" secondItem="WVH-Zi-Dti" secondAttribute="trailing" id="6Ib-3M-TeZ"/>
+                            <constraint firstItem="smI-oo-MR2" firstAttribute="top" secondItem="WVH-Zi-Dti" secondAttribute="bottom" constant="35" id="D7H-5f-bhV"/>
+                            <constraint firstItem="Sdr-aK-RIv" firstAttribute="leading" secondItem="zWG-Oq-akG" secondAttribute="leading" id="DhP-9X-X8P"/>
+                            <constraint firstItem="ei5-wZ-pln" firstAttribute="trailing" secondItem="WVH-Zi-Dti" secondAttribute="trailing" constant="64" id="Ewk-QF-ReH"/>
+                            <constraint firstItem="zWG-Oq-akG" firstAttribute="top" secondItem="smI-oo-MR2" secondAttribute="bottom" constant="35" id="LsK-kk-BIA"/>
+                            <constraint firstItem="oAT-T1-SOO" firstAttribute="leading" secondItem="ei5-wZ-pln" secondAttribute="leading" id="YYQ-nJ-F2g"/>
+                            <constraint firstItem="zWG-Oq-akG" firstAttribute="leading" secondItem="smI-oo-MR2" secondAttribute="leading" id="YfN-US-Nmg"/>
+                            <constraint firstItem="WVH-Zi-Dti" firstAttribute="top" secondItem="oAT-T1-SOO" secondAttribute="bottom" constant="235" id="jki-VK-nhK"/>
+                            <constraint firstItem="smI-oo-MR2" firstAttribute="leading" secondItem="WVH-Zi-Dti" secondAttribute="leading" id="oZq-Yf-SdJ"/>
+                            <constraint firstItem="Sdr-aK-RIv" firstAttribute="top" secondItem="zWG-Oq-akG" secondAttribute="bottom" constant="38" id="pIy-sr-Ib3"/>
+                            <constraint firstItem="Sdr-aK-RIv" firstAttribute="trailing" secondItem="zWG-Oq-akG" secondAttribute="trailing" id="s5q-KJ-WSk"/>
+                            <constraint firstItem="WVH-Zi-Dti" firstAttribute="leading" secondItem="ei5-wZ-pln" secondAttribute="leading" constant="65" id="w90-Of-R3Q"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="vda-Ap-8VR"/>
+                    <connections>
+                        <outlet property="ageField" destination="zWG-Oq-akG" id="lMr-jh-YQK"/>
+                        <outlet property="nameField" destination="WVH-Zi-Dti" id="vYg-yi-bBr"/>
+                        <outlet property="salaryField" destination="smI-oo-MR2" id="nmf-QV-kVg"/>
+                        <outlet property="submitBtn" destination="Sdr-aK-RIv" id="96e-1X-D9G"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QEj-54-YbU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="AXh-lK-L6V" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1952" y="119"/>
         </scene>

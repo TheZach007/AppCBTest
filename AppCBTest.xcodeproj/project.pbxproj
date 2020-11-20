@@ -15,6 +15,7 @@
 		E3B853BD2567D5A900036F45 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3B853BB2567D5A900036F45 /* LaunchScreen.storyboard */; };
 		E3B853CF2567E13500036F45 /* EmployeeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B853CE2567E13500036F45 /* EmployeeListViewController.swift */; };
 		E3B853D32567E16900036F45 /* EmployeeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B853D22567E16900036F45 /* EmployeeTableViewCell.swift */; };
+		E3B853D72567E2A100036F45 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B853D62567E2A100036F45 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		E3B853BE2567D5A900036F45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E3B853CE2567E13500036F45 /* EmployeeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeListViewController.swift; sourceTree = "<group>"; };
 		E3B853D22567E16900036F45 /* EmployeeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeTableViewCell.swift; sourceTree = "<group>"; };
+		E3B853D62567E2A100036F45 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 			children = (
 				E3B853B42567D5A600036F45 /* InputViewController.swift */,
 				E3B853CE2567E13500036F45 /* EmployeeListViewController.swift */,
+				E3B853D62567E2A100036F45 /* DetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 				E3B853CF2567E13500036F45 /* EmployeeListViewController.swift in Sources */,
 				E3B853B52567D5A600036F45 /* InputViewController.swift in Sources */,
 				E3B853B12567D5A600036F45 /* AppDelegate.swift in Sources */,
+				E3B853D72567E2A100036F45 /* DetailViewController.swift in Sources */,
 				E3B853D32567E16900036F45 /* EmployeeTableViewCell.swift in Sources */,
 				E3B853B32567D5A600036F45 /* SceneDelegate.swift in Sources */,
 			);
