@@ -64,6 +64,24 @@ class EmployeeListViewController: UIViewController, UITableViewDelegate, UITable
         performSegue(withIdentifier: "toDetails", sender: self)
     }
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == .delete) {
+            AF.request("http://dummy.restapiexample.com/api/v1/delete/" + "\(showAllDataEmployees[indexPath.row].idValue)", method: .delete ,encoding: JSONEncoding.default).responseJSON {
+            response in switch response.result {
+            case .success(let data):
+                print(data)
+                self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            case .failure(let error):
+                print(error)
+            }
+            }
+        }
+    }
+    
     func getData() {
         let activityIndicator = UIActivityIndicatorView(style: .gray)
         view.addSubview(activityIndicator)
